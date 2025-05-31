@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { ProductList } from './components/ProductList';
+import { CreateProduct } from './components/CreateProduct';
+import { commonStyles } from './styles/common';
+import { spacing, colors } from './styles/theme';
 
-function App() {
-  const [count, setCount] = useState(0)
+const styles = {
+  container: {
+    ...commonStyles.container,
+    color: colors.text.primary,
+    backgroundColor: colors.background,
+  },
+  content: {
+    display: 'grid',
+    gridTemplateColumns: '300px 1fr',
+    gap: spacing.xl,
+    alignItems: 'start',
+  },
+  title: {
+    color: colors.text.primary,
+    marginBottom: spacing.lg,
+  }
+};
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Product Management</h1>
+      <div style={styles.content}>
+        <CreateProduct />
+        <ProductList />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;

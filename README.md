@@ -19,12 +19,43 @@ products-panel/
 ├── frontend/               # React frontend application
 │   ├── src/
 │   │   ├── components/    # React components
-│   │   ├── services/      # API services
+│   │   │   ├── ProductList.tsx
+│   │   │   └── CreateProduct.tsx
+│   │   ├── hooks/        # Custom React hooks
+│   │   │   └── useProducts.ts
+│   │   ├── services/     # API services
+│   │   │   └── api.ts
+│   │   ├── styles/       # JSS styles
+│   │   │   ├── theme.ts
+│   │   │   └── common.ts
 │   │   ├── types/        # TypeScript type definitions
+│   │   │   └── product.ts
 │   │   └── App.tsx
 │   ├── package.json
 │   └── tsconfig.json
 └── README.md
+
+## Features
+
+### Backend
+- RESTful API with Express
+- TypeScript for type safety
+- Clean architecture with services and controllers
+- Request validation
+- Error handling
+- Morgan for request logging
+- CORS enabled
+- Helmet for security
+
+### Frontend
+- React with TypeScript
+- Custom hooks for state management
+- Type-safe API integration
+- JSS for styling
+- Responsive design
+- Error handling
+- Loading states
+- Form validation
 
 ## Prerequisites
 
@@ -77,6 +108,23 @@ The application will be available at http://localhost:3000
 - `GET /products` - Get all products
 - `POST /products` - Create a new product
 - `DELETE /products/:id` - Delete a product by ID
+
+## Styling Approach
+
+The application uses JSS (JavaScript Style Sheets) for styling, providing:
+- Type-safe styles
+- Theme consistency
+- Reusable style components
+- No CSS-in-JS runtime overhead
+- Easy style composition
+
+Key style features:
+- Consistent color palette
+- Responsive layout
+- Interactive elements
+- Loading states
+- Error states
+- Clean typography
 
 ## Technologies Used
 
