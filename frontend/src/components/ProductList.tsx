@@ -67,7 +67,7 @@ export const ProductList: React.FC = () => {
       try {
         await deleteProduct(id);
       } catch (err) {
-        // Error is handled by the hook
+        console.error('Error deleting product:', err);
       }
     }
   };
