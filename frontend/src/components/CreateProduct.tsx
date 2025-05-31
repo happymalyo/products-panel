@@ -41,7 +41,7 @@ const initialFormData: CreateProductDto = {
 };
 
 export const CreateProduct: React.FC = () => {
-  const { createProduct } = useProducts();
+  const { createProduct, fetchProducts } = useProducts();
   const [formData, setFormData] = useState<CreateProductDto>(initialFormData);
   const [error, setError] = useState<string | null>(null);
 

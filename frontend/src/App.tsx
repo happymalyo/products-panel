@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProductList } from './components/ProductList';
 import { CreateProduct } from './components/CreateProduct';
+import { ProductProvider } from './context/ProductContext';
 import { commonStyles } from './styles/common';
 import { spacing, colors } from './styles/theme';
 
@@ -24,13 +25,15 @@ const styles = {
 
 const App: React.FC = () => {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Product Management</h1>
-      <div style={styles.content}>
-        <CreateProduct />
-        <ProductList />
+    <ProductProvider>
+      <div style={styles.container}>
+        <h1 style={styles.title}>Product Management</h1>
+        <div style={styles.content}>
+          <CreateProduct />
+          <ProductList />
+        </div>
       </div>
-    </div>
+    </ProductProvider>
   );
 };
 
