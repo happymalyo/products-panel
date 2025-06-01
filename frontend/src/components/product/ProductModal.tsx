@@ -44,7 +44,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose }) =
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-left text-sm font-medium text-gray-700 mb-1">
               Nom
             </label>
             <input
@@ -56,7 +56,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose }) =
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-left text-sm font-medium text-gray-700 mb-1">
               Description
             </label>
             <textarea
@@ -68,7 +68,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose }) =
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-left text-sm font-medium text-gray-700 mb-1">
               Prix
             </label>
             <input
