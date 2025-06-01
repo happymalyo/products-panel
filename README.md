@@ -1,49 +1,37 @@
 # Products Panel
 
-A full-stack TypeScript application with React frontend and Express backend.
+A full-stack TypeScript application with React frontend and Express REST API backend.
 
 ## Project Structure
 
 ```
 products-panel/
-├── backend/                 # Express backend application
+├── frontend/                 # React TypeScript frontend application
 │   ├── src/
-│   │   ├── controllers/    # Request handlers
-│   │   ├── middleware/     # Express middleware
-│   │   ├── models/        # Data models
-│   │   ├── routes/        # API routes
-│   │   ├── services/      # Business logic
-│   │   └── types/         # TypeScript type definitions
-│   ├── package.json
-│   └── tsconfig.json
-├── frontend/               # React frontend application
+│   │   ├── components/      # React components
+│   │   ├── context/        # React context providers
+│   │   ├── hooks/          # Custom React hooks
+│   │   └── types/          # TypeScript type definitions
+│   ├── Dockerfile          # Frontend Docker configuration
+│   └── package.json
+├── backend/                 # Node.js/Express backend application
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   │   ├── ProductList.tsx
-│   │   │   └── CreateProduct.tsx
-│   │   ├── hooks/        # Custom React hooks
-│   │   │   └── useProducts.ts
-│   │   ├── services/     # API services
-│   │   │   └── api.ts
-│   │   ├── styles/       # JSS styles
-│   │   │   ├── theme.ts
-│   │   │   └── common.ts
-│   │   ├── types/        # TypeScript type definitions
-│   │   │   └── product.ts
-│   │   └── App.tsx
-│   ├── package.json
-│   └── tsconfig.json
-└── README.md
+│   │   ├── controllers/    # Route controllers
+│   │   ├── routes/         # API routes
+│   │   └── middleware/     # Express middleware
+│   ├── Dockerfile          # Backend Docker configuration
+│   └── package.json
+├── docker-compose.yml      # Docker compose configuration
+└── README.md              # Project documentation
+```
 
 ## Features
 
 ### Backend
 - RESTful API with Express
 - TypeScript for type safety
-- Clean architecture with services and controllers
-- Request validation
+- Clean architecture with controllers
 - Error handling
-- Morgan for request logging
 - CORS enabled
 - Helmet for security
 
@@ -51,19 +39,30 @@ products-panel/
 - React with TypeScript
 - Custom hooks for state management
 - Type-safe API integration
-- JSS for styling
+- Tailwind CSS for modern UI
 - Responsive design
 - Error handling
 - Loading states
 - Form validation
 
-## Prerequisites
+## Quick Start with Docker
 
-- Node.js (v14 or higher)
-- npm or yarn
-- Git
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd products-panel
+   ```
 
-## Setup Instructions
+2. Build and run the containers:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Access the application:
+   - Frontend: http://localhost
+   - Backend API: http://localhost:3000
+
+## Development Setup
 
 ### Backend Setup
 
@@ -82,7 +81,7 @@ products-panel/
    npm run dev
    ```
 
-The server will start on http://localhost:3001
+The server will start on http://localhost:3000
 
 ### Frontend Setup
 
@@ -101,42 +100,46 @@ The server will start on http://localhost:3001
    npm run dev
    ```
 
-The application will be available at http://localhost:3000
+The application will be available at http://localhost:5173
 
 ## API Endpoints
 
-- `GET /products` - Get all products
-- `POST /products` - Create a new product
-- `DELETE /products/:id` - Delete a product by ID
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create a new product
+- `DELETE /api/products/:id` - Delete a product by ID
 
-## Styling Approach
+## Docker Commands
 
-The application uses JSS (JavaScript Style Sheets) for styling, providing:
-- Type-safe styles
-- Theme consistency
-- Reusable style components
-- No CSS-in-JS runtime overhead
-- Easy style composition
+- Build and start services:
+  ```bash
+  docker-compose up --build
+  ```
 
-Key style features:
-- Consistent color palette
-- Responsive layout
-- Interactive elements
-- Loading states
-- Error states
-- Clean typography
+- Start in detached mode:
+  ```bash
+  docker-compose up -d
+  ```
+
+- View logs:
+  ```bash
+  docker-compose logs -f
+  ```
+
+- Stop services:
+  ```bash
+  docker-compose down
+  ```
 
 ## Technologies Used
 
 - Backend:
-  - Node.js
-  - Express
+  - Node.js with Express
   - TypeScript
-  - Express Validator (for request validation)
+  - Express Validator
 
 - Frontend:
-  - React
+  - React 18
   - TypeScript
-  - Axios
-  - React Query
-  - Tailwind CSS 
+  - Vite
+  - Tailwind CSS
+  - React Context 

@@ -26,7 +26,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
       const data = await api.products.getAll();
       setProducts(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch products');
+      setError(err instanceof Error ? "Failed to fetch products. Change the environment variables in the .env file" : 'Failed to fetch products');
     } finally {
       setLoading(false);
     }
