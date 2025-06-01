@@ -175,6 +175,7 @@ Create `frontend/.env`:
 VITE_NODE_ENV=development
 VITE_API_DEV_URL=http://localhost:3001
 VITE_API_PROD_URL=http://localhost:4000
+
 ```
 
 ### Docker Development
@@ -193,5 +194,5 @@ Environment variables are handled through docker-compose.yml
   - Vite
   - Tailwind CSS
   - React Context
-  
-   ``` 
+
+``` 
