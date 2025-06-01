@@ -45,7 +45,41 @@ products-panel/
 - Loading states
 - Form validation
 
-## Quick Start with Docker
+## Setup Options
+
+You can run this application in two ways:
+1. Using Docker (recommended for production-like environment)
+2. Local development setup (recommended for development)
+
+### Option 1: Docker Setup
+
+#### Prerequisites
+1. Install Docker:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get update
+   sudo apt-get install docker.io
+
+   # macOS (using Homebrew)
+   brew install docker
+
+   # Windows
+   # Download Docker Desktop from https://www.docker.com/products/docker-desktop
+   ```
+
+2. Install Docker Compose:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install docker-compose
+
+   # macOS (using Homebrew)
+   brew install docker-compose
+
+   # Windows
+   # Docker Compose comes with Docker Desktop
+   ```
+
+#### Running with Docker
 
 1. Clone the repository:
    ```bash
@@ -59,12 +93,37 @@ products-panel/
    ```
 
 3. Access the application:
-   - Frontend: http://localhost
-   - Backend API: http://localhost:3000
+   - Frontend: http://localhost:4001
+   - Backend API: http://localhost:4000
 
-## Development Setup
+#### Useful Docker Commands
+- Start in detached mode:
+  ```bash
+  docker-compose up -d
+  ```
 
-### Backend Setup
+- View logs:
+  ```bash
+  docker-compose logs -f
+  ```
+
+- Stop services:
+  ```bash
+  docker-compose down
+  ```
+
+- Remove all containers and volumes:
+  ```bash
+  docker-compose down -v
+  ```
+
+### Option 2: Local Development Setup
+
+#### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+#### Backend Setup
 
 1. Navigate to the backend directory:
    ```bash
@@ -81,9 +140,9 @@ products-panel/
    npm run dev
    ```
 
-The server will start on http://localhost:3000
+The server will start on http://localhost:3001
 
-### Frontend Setup
+#### Frontend Setup
 
 1. Navigate to the frontend directory:
    ```bash
@@ -108,27 +167,18 @@ The application will be available at http://localhost:5173
 - `POST /api/products` - Create a new product
 - `DELETE /api/products/:id` - Delete a product by ID
 
-## Docker Commands
+## Environment Variables
 
-- Build and start services:
-  ```bash
-  docker-compose up --build
-  ```
+### Local Development
+Create `frontend/.env`:
+```env
+VITE_NODE_ENV=development
+VITE_API_DEV_URL=http://localhost:3001
+VITE_API_PROD_URL=http://localhost:4000
+```
 
-- Start in detached mode:
-  ```bash
-  docker-compose up -d
-  ```
-
-- View logs:
-  ```bash
-  docker-compose logs -f
-  ```
-
-- Stop services:
-  ```bash
-  docker-compose down
-  ```
+### Docker Development
+Environment variables are handled through docker-compose.yml
 
 ## Technologies Used
 
@@ -142,4 +192,6 @@ The application will be available at http://localhost:5173
   - TypeScript
   - Vite
   - Tailwind CSS
-  - React Context 
+  - React Context
+  
+   ``` 
