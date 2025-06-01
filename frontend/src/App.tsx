@@ -1,40 +1,18 @@
-import React from 'react';
-import { ProductList } from './components/ProductList';
-import { CreateProduct } from './components/CreateProduct';
-import { ProductProvider } from './context/ProductContext';
-import { commonStyles } from './styles/common';
-import { spacing, colors } from './styles/theme';
+import './App.css'
+import { ProductTable } from './components/product/ProductTable'
+import { ProductProvider } from './context/ProductContext'
 
-const styles = {
-  container: {
-    ...commonStyles.container,
-    color: colors.text.primary,
-    backgroundColor: colors.background,
-  },
-  content: {
-    display: 'grid',
-    gridTemplateColumns: '300px 1fr',
-    gap: spacing.xl,
-    alignItems: 'start',
-  },
-  title: {
-    color: colors.text.primary,
-    marginBottom: spacing.lg,
-  }
-};
-
-const App: React.FC = () => {
+function App() {
   return (
     <ProductProvider>
-      <div style={styles.container}>
-        <h1 style={styles.title}>Product Management</h1>
-        <div style={styles.content}>
-          <CreateProduct />
-          <ProductList />
+      <div className="min-h-screen bg-gray-100 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">Product Management</h1>
+          <ProductTable />
         </div>
       </div>
     </ProductProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

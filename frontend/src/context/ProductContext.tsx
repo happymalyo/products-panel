@@ -18,12 +18,14 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  console.log('products',products);
 
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
       const data = await api.products.getAll();
+      console.log('data',data);
       setProducts(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch products');

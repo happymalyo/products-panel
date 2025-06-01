@@ -6,6 +6,7 @@ export const api = {
   products: {
     getAll: async (): Promise<Product[]> => {
       const response = await fetch(`${API_URL}/products`);
+      console.log(response);
       if (!response.ok) throw new Error('Failed to fetch products');
       return response.json();
     },
